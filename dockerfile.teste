@@ -1,0 +1,15 @@
+FROM alpine:latest
+
+# Instala o curl e bash para executar o teste
+RUN apk add --no-cache curl bash
+
+WORKDIR /test
+
+# Copia o script de teste para dentro do container
+COPY test.sh .
+
+# Dá permissão para o script de teste ser executado
+RUN chmod +x test.sh
+
+# Executa o script de teste
+CMD ["./test.sh"]
